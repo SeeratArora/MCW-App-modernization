@@ -39,7 +39,6 @@ Invoke-Command -ScriptBlock $pathArgs
 Unregister-ScheduledTask -TaskName "Install Lab Requirements" -Confirm:$false
 
 
-
 $env:chocolateyUseWindowsCompression = 'true'
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -Verbose
 choco feature enable -n allowGlobalConfirmation
