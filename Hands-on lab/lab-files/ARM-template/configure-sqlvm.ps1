@@ -69,3 +69,15 @@ function Setup-Sql {
 }
 
 Setup-Sql
+
+
+$env:chocolateyUseWindowsCompression = 'true'
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -Verbose
+choco feature enable -n allowGlobalConfirmation
+choco install dotnetfx -y -force
+choco install sql-server-management-studio
+
+    
+# Download and install Data Mirgation Assistant
+(New-Object System.Net.WebClient).DownloadFile('https://download.microsoft.com/download/C/6/3/C63D8695-CEF2-43C3-AF0A-4989507E429B/DataMigrationAssistant.msi', 'C:\DataMigrationAssistant.msi')
+Start-Process -file 'C:\DataMigrationAssistant.msi' -arg '/qn /l*v C:\dma_install.txt' -passthru | wait-process
