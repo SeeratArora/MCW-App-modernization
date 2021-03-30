@@ -43,6 +43,9 @@ $env:chocolateyUseWindowsCompression = 'true'
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -Verbose
 choco feature enable -n allowGlobalConfirmation
 choco install dotnetfx -y -force
+
+Restart-Computer
+
 choco install sql-server-management-studio
 
     
