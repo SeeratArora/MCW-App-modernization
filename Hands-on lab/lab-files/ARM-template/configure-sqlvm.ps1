@@ -91,7 +91,7 @@ Invoke-Command -ScriptBlock $pathArgs
 #.Net 4.8
 $WebClient = New-Object System.Net.WebClient
 $WebClient.DownloadFile("https://go.microsoft.com/fwlink/?linkid=2088631","C:\ndp48-web.exe")
-Start-Process -file 'C:\ndp48-web.exe' -arg "/q /norestart" 
+Start-Process -file 'C:\ndp48-web.exe' -arg "/q /norestart /ACCEPTEULA=1"
 sleep 20
 
 # Download and install Data Mirgation Assistant
